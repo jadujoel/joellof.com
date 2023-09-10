@@ -8,7 +8,8 @@ This Test Checks Audio Format Compatibility in Browsers
 **Features:**
 
 - Start the test by clicking the button.
-- If your browser settings support starting the Audio Context without user interaction, it will start automatically.
+- If your browser settings support starting the Audio Context without user interaction,
+it will start automatically.
 - Supports various audio types: Webm, Mp4, Mp3, etc.
 - Provides error messages if a format isn’t compatible.
 - Option to play audio if the format is supported.
@@ -20,7 +21,8 @@ This Test Checks Audio Format Compatibility in Browsers
 
 **Purpose:**
 
-- This tool assists users in quickly determining which audio formats their browsers support.
+- This tool assists users in quickly determining which audio formats
+their browsers support.
 
 ---
 
@@ -52,7 +54,7 @@ This Test Checks Audio Format Compatibility in Browsers
     color: #f00;
   }
 
-  button {
+  #start, #buttons > button {
     display: inline-block;
     padding: 10px;
     background-color: #666;
@@ -68,22 +70,21 @@ This Test Checks Audio Format Compatibility in Browsers
     height: 80px
   }
 
-  button:hover {
+   #start, #buttons > button:hover {
     background-color: #555;
   }
 </style>
 
-<!-- this div needs to be here -->
 <section>
-<p id="context"></p>
-<p id="webm"></p>
-<p id="mp4"></p>
-<p id="mp3"></p>
-<p id="ogg"></p>
-<p id="opus"></p>
-<p id="caf-short"></p>
-<p id="caf-long"></p>
-<p id="wav"></p>
+  <p id="context"></p>
+  <p id="webm"></p>
+  <p id="mp4"></p>
+  <p id="mp3"></p>
+  <p id="ogg"></p>
+  <p id="opus"></p>
+  <p id="caf-short"></p>
+  <p id="caf-long"></p>
+  <p id="wav"></p>
 </section>
 <section id="buttons">
 </section>
