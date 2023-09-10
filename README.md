@@ -2,7 +2,6 @@
 
 [![Open Website](https://img.shields.io/badge/Open_Website-blue)](https://joellof.com)
 
-
 ## 🚀 Project Structure
 
 Inside of your this project, you'll see the following folders and files:
