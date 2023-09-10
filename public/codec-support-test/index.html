@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audio Codec Support Test</title>
+  <script src="./app.js" module type="module" defer></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      background-color: #333;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      justify-self: center;
+      justify-content: center;
+    }
+
+    pre {
+      display: block;
+      overflow: scroll;
+      max-width: 400;
+      text-overflow: hidden;
+      overflow-wrap: break-word;
+    }
+
+    .results {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .result {
+      width: 30%;
+      padding: 20px;
+      background-color: #444;
+      border-radius: 4px;
+    }
+
+    .success {
+      color: rgb(0, 255, 17);
+    }
+
+    .failure {
+      color: #f00;
+    }
+
+    button {
+      display: inline-block;
+      padding: 10px;
+      background-color: #666;
+      color: #fff;
+      border: #333;
+      border-radius: 6px;
+      border-width: 2px;
+      padding: 8px;
+      box-shadow: 4px 4px 0px black;
+      cursor: pointer;
+      text-decoration: none;
+      width: 140px;
+      height: 80px
+    }
+
+    button:hover {
+      background-color: #555;
+    }
+  </style>
+  <script defer src></script>
+<body>
+  <H1>WebAudio Playback Results</H1>
+  <p id="run">Click or tap to start audio context</p>
+  <section>
+  <p id="context">Audio Context: loading...</p>
+  <p id="webm">Webm: loading....</p>
+  <p id="mp4">Mp4: loading...</p>
+  <p id="mp3">Mp3: loading...</p>
+  <p id="ogg">Ogg: loading...</p>
+  <p id="opus">Opus: loading...</p>
+  <p id="caf-short">CafShort: loading...</p>
+  <p id="caf-long">CafLong: loading...</p>
+  <p id="wav">Wav: loading...</p>
+  </section>
+  <section id="buttons">
+  </section>
+</body>
+</head>
+</html>
