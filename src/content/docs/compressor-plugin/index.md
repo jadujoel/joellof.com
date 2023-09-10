@@ -10,16 +10,23 @@ Audio Plugin written in C++. Used for controlling the dynamics of audio signals.
 During this project I learned alot about analysing and plotting signals.
 The source code for the plugin is available [here](https://github.com/jadujoel/audio-compressor).
 
-Before turning it into an application usable in productions I developed a test in Python and wrote a report on that test.
+Before turning it into an application usable in productions I developed a test
+in Python and wrote a report on that test.
 The Python code is available [here](https://github.com/jadujoel/audio-compressor-python).
 
 ## 1. Introduction
 
-The compressor is a versatile tool commonly used to change the dynamics and shape the tone of the sound, and this document will first describe it’s common parameters and what they do. Then it will analyse one specific compressor written in Python, first the attack and release times, then look-ahead and side-chaining. Lastly there will be a summary of results and discussion.
+The compressor is a versatile tool commonly used to change the dynamics and shape
+the tone of the sound, and this document will first describe it’s common parameters
+and what they do.
+Then it will analyse one specific compressor written in Python,
+first the attack and release times, then look-ahead and side-chaining.
+Lastly there will be a summary of results and discussion.
 
 ### Parameters
 
-Here are some definitions for common parameters of a compressor, not all compressors have all of these parameters, and some have more.
+Here are some definitions for common parameters of a compressor,
+not all compressors have all of these parameters, and some have more.
 
 #### Input Gain
 
