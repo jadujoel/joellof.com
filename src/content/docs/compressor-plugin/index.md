@@ -3,7 +3,12 @@ title: Compressor Plugin
 description: Audio Plugin written in C++. Used for controlling the dynamics of audio signals.
 ---
 
-![compressor image](./audioCompressor.png "Compressor Snapshot")
+<style>
+math {
+  display: inline-block;
+  color: white;
+}
+</style>
 
 Audio Plugin written in C++. Used for controlling the dynamics of audio signals.
 
@@ -104,7 +109,8 @@ Compressed:
 We can see that compressor pushes the amplitude down when the level is above threshold, and lets go when its below threshold.
 A notable mention, in his blogpost Chip stated that the attack and release times seemed to be correct, based on applying 63 % of the gain adjustment in the set time. However, the time constants are simply set by doing:
 
-$$timeConstant = e^{(\frac{-1 / time}{5} * sampleRate)}$$
+<math>timeConstant = e^(-1 / time / 5 * sampleRate)</math>
+
 
 Which doesn’t always seem to provide 63% of compression at the set attack/release times. At least in my trials.
 
@@ -129,15 +135,17 @@ Compressed:
 
 As we can see here, while the higher ratio and lower threshold makes for a larger gain adjustment when fully activated, the longer attack time makes for a gentler curve. Inversely, the shorter release makes for quick release of gain adjustment after the signal has passed below the threshold.
 
-But wait, the gain adjustment seems to be off. The difference between the threshold of $-25 -5 = 20$ And $\frac{20}{ratio} = \frac{20}{10} = 2$
 
-So the result should lie at: $-25dBFS +2dBFS = -23dbFS$
+But wait, the gain adjustment seems to be off. The difference between the threshold of <math>-25 - 5 = 20</math> And <math>20 ratio = 20 / 10 = 2</math>
 
-However the actual result above shows the signal moving towards $-20 dBFS$ at the attack phase. Which is $3 dBFS$ off.
+So the result should lie at: <math>-25 dBFS + 2 dBFS = -23 dBFS</math>
+
+However, the actual result above shows the signal moving towards <math>-20 dBFS</math> at the attack phase. Which is <math>3 dBFS</math> off.
+
 
 After some trial and error I found that the threshold setting in the compressor I’ve implemented seems to be consistently about *4dBFS* off on sine wave, but found an explanation; in the plot, we are looking at the peak amplitude at every *1ms* frame, however, the compressor is not, it is looking at a low passed smoother signal based on the rate of the shortest of either attack or release-times divided by *5*, but never at no less than *2ms*. In the example above, that would mean it choose the *2ms* time for the low-pass constant.
 
-$$lowPassTime = \min(attackTime, releaseTime)$$
+<math>lowPassTime = min(attackTime, releaseTime)</math>
 
 If we instead plot the signal using the mean of the absolute values, in frames of *2ms*. We see that the lower sine amplitude will indeed not be located at *-25dBFS*, but closer to *-29dBFS*. Which does account for the *4dB* difference.
 
@@ -145,9 +153,8 @@ If we instead plot the signal using the mean of the absolute values, in frames o
 
 As we can see here, the amplitude is around *16dBFS* above threshold.
 
-$$\frac{16}{10} = 1.6$$
-
-$$-25 + 1.6 = -23.4$$
+- <math>16 / 10 = 1.6</math>
+- <math>-25 + 1.6 = -23.4</math>
 
 Which seems decently close to what the compressor should be outputting.
 

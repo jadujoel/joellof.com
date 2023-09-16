@@ -378,9 +378,6 @@ class UNet():
 
 The code details the architecture of the neural network, incorporating various layers such as Conv2D, LeakyReLU, and BatchNormalization, as well as methods for calculating loss and optimizing parameters.
 
-## Loss Function
-
-$$L(X, Y;\Theta) = ||(f(X, \Theta) \odot X - Y)|| _{1,1}$$
 
 ## Future Work
 
