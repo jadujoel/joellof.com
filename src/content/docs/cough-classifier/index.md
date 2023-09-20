@@ -12,7 +12,7 @@ math {
 
 ## Introduction
 
-The Imagimob ML Engineer Test Assignment delves into the realm of Sound Event Detection, with a focus on detecting human coughs. This test assignment served as a quick case study to understand the intricacies involved in training an audio classification model.
+This report delves into the realm of Sound Event Detection, with a focus on detecting human coughs to understand the intricacies involved in training an audio classification model.
 
 ## Preparing the Data
 
