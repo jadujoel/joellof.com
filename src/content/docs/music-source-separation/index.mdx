@@ -2,6 +2,8 @@
 title: Music Source Separation
 description: Separating vocals from backtracks using machine learning.
 ---
+import Waveform from '../../../components/Waveform.astro';
+import '../../../styles/math.css';
 
 ## Project Summary
 
@@ -27,29 +29,12 @@ Here's a glimpse into the application's capabilities:
 
 Additionally, I've provided some audio examples to demonstrate the application's ability to separate vocals from instrumentals. Note that these samples are proofs of concept and may contain imperfections that are being addressed in ongoing work.
 
-- Original Mix:
-
-<audio src="okej-210531.1510.mp3" controls></audio>
-
-- Separated Vocal + Instrumental:
-
-<audio src="okej-210531.1510_mix_LR.mp3" controls></audio>
-
-- Original Instrumental:
-
-<audio src="okej-210531.1510_ins_org.mp3" controls></audio>
-
-- Separated Instrumental:
-
-<audio src="okej-210531.1510_ins_LR.mp3" controls></audio>
-
-- Original Vocal:
-
-<audio src="okej-210531.1510_voc_org.mp3" controls></audio>
-
-- Separated Vocal:
-
-<audio src="okej-210531.1510_voc_LR.mp3" controls></audio>
+<Waveform src="okej-210531.1510.mp3" name="Original Mix" gain="-18"/>
+<Waveform src="okej-210531.1510_mix_LR.mp3" name="Separated Vocal + Instrumental" gain="-18" />
+<Waveform src="okej-210531.1510_ins_org.mp3" name="Original Instrumental" gain="-18" />
+<Waveform src="okej-210531.1510_ins_LR.mp3" name="Separated Instrumental" gain="-18" />
+<Waveform src="okej-210531.1510_voc_org.mp3" name="Original Vocal" gain="-18" />
+<Waveform src="okej-210531.1510_voc_LR.mp3" name="Separated Vocal" gain="-18" />
 
 ## Background & Motivation
 

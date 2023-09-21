@@ -1,0 +1,20 @@
+---
+interface WaveformProps {
+  name?: string
+  src?: string
+  id?: string
+  gain?: number
+}
+function randomId() {
+  return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
+}
+const props: WaveformProps = Astro.props as WaveformProps
+props.id = props.id ?? randomId()
+props.gain = props.gain ?? 0
+---
+<waveform-element id=`waveform_{props.id}` class="waveform" data-message={JSON.stringify(props)}>
+  <p class="waveform_name" style=`display: ${props.name === undefined ? 'hidden' : 'inline'}`>{props.name}</p>
+</waveform>
+<script>
+  import "./waveform-element"
+</script>
