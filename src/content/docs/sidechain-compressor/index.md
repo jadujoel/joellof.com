@@ -3,7 +3,7 @@ title: "Sidechain Compressor"
 description: A sidechain compressor audio worklet for web audio.
 ---
 
-[![Try it out](./sidechain.png 'Sidechain Application')](/sidechain-compressor-audio-worklet/index.html)
+<iframe src=https://jadujoel.github.io/sidechain-compressor-audio-worklet/index.html style="height:800px;width:100%;border:none;"></iframe>
 
 ## Introduction
 
