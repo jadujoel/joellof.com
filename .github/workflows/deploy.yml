@@ -1,19 +1,13 @@
 name: Deploy
-
 on:
   push:
     branches: ["main"]
   workflow_dispatch:
-
 permissions:
-  contents: read
   pages: write
-  id-token: write
-
 concurrency:
   group: "pages"
   cancel-in-progress: true
-
 jobs:
   deploy:
     environment:
@@ -25,8 +19,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - uses: actions/setup-node@v3
-    - run: npm ci
-    - run: npm run build
+      with:
+        cache: 'npm'
+    - run: npm ci && npm run build
     - uses: actions/configure-pages@v3
     - uses: actions/upload-pages-artifact@v2
       with:
