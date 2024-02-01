@@ -5,6 +5,8 @@ description: A sidechain compressor audio worklet for web audio.
 
 <iframe src=https://jadujoel.github.io/sidechain-compressor-audio-worklet/index.html style="height:800px;width:100%;border:none;"></iframe>
 
+Full page version here: https://jadujoel.github.io/sidechain-compressor-audio-worklet/
+
 ## Introduction
 
 An audio compression solution purpose-built for web applications. Unlike many standard Web Audio API tools, this compressor introduces sidechaining features to better meet the requirements of dynamic web audio environments.
