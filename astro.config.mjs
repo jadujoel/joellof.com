@@ -24,6 +24,7 @@ export default defineConfig({
 						{ label: 'Game - Snake', link: '/snake/' },
 						{ label: 'Util - Markdown', link: '/markdown-to-jira/' },
 						{ label: 'Util - Codec', link: '/codec-support-test/' },
+						{ label: 'Util - Scode', link: '/scode/' },
 					],
 				},
 			],
