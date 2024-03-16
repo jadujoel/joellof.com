@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import esbuild from 'esbuild';
 
 // https://astro.build/config
 export default defineConfig({
@@ -11,6 +12,23 @@ export default defineConfig({
 				github: 'https://github.com/jadujoel',
 				linkedin: 'https://www.linkedin.com/in/jadujoel/',
 			},
+      plugins: [
+        {
+          name: 'ts-builder',
+          hooks: {
+            setup: async () => {
+              await esbuild.build({
+                entryPoints: ['src/scripts/sounds.ts'],
+                bundle: true,
+                outfile: 'public/scripts/sounds.js',
+                format: 'esm',
+                platform: 'browser',
+                minify: true,
+              })
+            },
+          }
+        }
+      ],
 			sidebar: [
 				{
 					label: 'Projects',
@@ -28,6 +46,17 @@ export default defineConfig({
 					],
 				},
 			],
+      head: [
+        // add sounds script to all pages
+        {
+          tag: 'script',
+          attrs: {
+            src: '/scripts/sounds.js',
+            defer: true,
+            type: 'module',
+          },
+        }
+      ]
 		}),
 	],
 });

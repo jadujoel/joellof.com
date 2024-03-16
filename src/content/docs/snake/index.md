@@ -3,6 +3,7 @@ title: "Snake"
 description: "Snake Game: A Journey Through Rust, Yew, and WebAssembly"
 ---
 
+
 ## A Classic Reimagined: Crafting a Snake Game with Modern Web Technologies
 
 <div id="snek_container">
@@ -30,11 +31,7 @@ description: "Snake Game: A Journey Through Rust, Yew, and WebAssembly"
 
 ### Introduction
 
-
 The project at hand, a rendition of the timeless Snake game, represents more than just an exercise in nostalgia. It serves as a rich learning ground, where the front-end is meticulously built using Rust through its React-like framework, Yew, and then compiled into WebAssembly for browser compatibility. This development endeavor expanded my understanding of interfacing Rust with JavaScript via `web_sys` and introduced me to the utility of Rust's linter, Clippy.
-
-
-
 
 ---
 
@@ -42,8 +39,6 @@ The project at hand, a rendition of the timeless Snake game, represents more tha
 
 Feel the game in action: [Play it here](https://jadujoel.github.io/snake/)
 For those interested in the nitty-gritty, the source code is available on [GitHub](https://github.com/jadujoel/snake).
-
-
 
 ### Technology Stack
 

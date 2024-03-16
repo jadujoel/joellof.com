@@ -20,9 +20,13 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/starlight": "0.9.1",
-    "astro": "3.0.12",
-    "sharp": "0.32.5",
-    "wavesurfer.js": "7.3.2"
+    "@astrojs/starlight": "0.21.1",
+    "sharp": "0.33.2",
+    "wavesurfer.js": "7.7.5"
+  },
+  "devDependencies": {
+    "astro": "4.5.5",
+    "esbuild": "0.20.2",
+    "sengine": "0.0.3"
   }
 }
