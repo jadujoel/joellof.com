@@ -22,3 +22,5 @@ pnpm-debug.log*
 
 # these are auto generated
 public/scripts
+
+.cache

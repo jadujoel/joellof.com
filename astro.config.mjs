@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import esbuild from 'esbuild';
+import fs from 'fs/promises'
 
 // https://astro.build/config
 export default defineConfig({
@@ -17,15 +18,44 @@ export default defineConfig({
           name: 'ts-builder',
           hooks: {
             setup: async () => {
-              await esbuild.build({
-                entryPoints: ['src/scripts/sounds.ts'],
-                bundle: true,
-                outfile: 'public/scripts/sounds.js',
-                format: 'esm',
-                platform: 'browser',
-                minify: true,
-              })
-            },
+              await fs.mkdir(".cache", { recursive: true })
+              const build = async (e) => {
+                await esbuild.build({
+                  entryPoints: ['src/scripts/sounds.ts'],
+                  bundle: true,
+                  outfile: 'public/scripts/sounds.js',
+                  format: 'esm',
+                  platform: 'browser',
+                  minify: true,
+                })
+                const time = new Date().getTime()
+                const ofile = `.cache/config${time}.js`
+                await esbuild.build({
+                  entryPoints: ['src/scripts/config.ts'],
+                  bundle: true,
+                  outfile: ofile,
+                  platform: 'node',
+                  minify: false,
+                  format: 'esm',
+                  treeShaking: true
+                })
+                const mod = await import(/* @vite-ignore */ ofile /* @vite-ignore */)
+                const config = JSON.stringify(mod.default, null, 2)
+                await fs.writeFile('public/config.json', config)
+              }
+              if (process.argv.includes('--watch')) {
+                await build()
+                const watch = async() => {
+                  const watcher = fs.watch('src/scripts', { recursive: true })
+                  for await (const event of watcher) {
+                    await build(event).catch(console.log)
+                  }
+                }
+                watch().catch(console.log)
+              } else {
+                await build()
+              }
+            }
           }
         }
       ],
@@ -43,6 +73,7 @@ export default defineConfig({
 						{ label: 'Util - Markdown', link: '/markdown-to-jira/' },
 						{ label: 'Util - Codec', link: '/codec-support-test/' },
 						{ label: 'Util - Scode', link: '/scode/' },
+						{ label: 'App - Podcast Master', link: '/podcast-master/' },
 					],
 				},
 			],
@@ -55,7 +86,7 @@ export default defineConfig({
             defer: true,
             type: 'module',
           },
-        }
+        },
       ]
 		}),
 	],

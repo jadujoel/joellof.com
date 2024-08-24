@@ -3,8 +3,13 @@ import { SengineFromUrls, type SEngine } from 'sengine';
 declare global {
   interface Window {
     sengine?: SEngine;
+    start?: () => void
   }
 }
+
+document.addEventListener('click', () => {
+  start()
+}, { once: true})
 
 let isActive = localStorage.getItem('joellof.com/enable_sounds') === 'true'
 if (isActive) {
@@ -25,10 +30,12 @@ window.addEventListener('storage', function(event) {
 });
 
 async function start() {
+  console.log("Starting sounds")
   isActive = true
   const engine = await SengineFromUrls(
-    `http://localhost:3000/joellof`,
-    `https://jadujoel.github.io/ssounds/`,
+    // `http://localhost:3000/joellof`,
+    `http://localhost:3000/config.json`,
+    `https://jadujoel.github.io/ssounds`,
   );
   window.sengine = engine
   const elements = document.querySelectorAll('a');

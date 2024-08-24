@@ -13,7 +13,7 @@
   },
   "homepage": "https://github.com/jadujoel/joellof#readme",
   "scripts": {
-    "dev": "astro dev",
+    "dev": "astro dev --port=3000 --watch",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",

@@ -1,0 +1,44 @@
+{
+  "clips": {
+    "a_enter": {
+      "src": "mel_a",
+      "gain": 0.03162277660168379,
+      "destination": "effects"
+    },
+    "start": {
+      "src": "drone_b",
+      "gain": 0.03162277660168379,
+      "loop": 999999,
+      "destination": "master"
+    }
+  },
+  "actions": {
+    "play_a_enter": {
+      "action": "play",
+      "target": "a_enter",
+      "type": "clip"
+    },
+    "play_start": {
+      "action": "play",
+      "target": "start",
+      "type": "clip"
+    }
+  },
+  "buses": {
+    "effects": {
+      "gain": 1,
+      "destination": "master"
+    },
+    "master": {
+      "gain": 1
+    }
+  },
+  "events": {
+    "a_enter": [
+      "play_a_enter"
+    ],
+    "sengine_started": [
+      "play_start"
+    ]
+  }
+}
